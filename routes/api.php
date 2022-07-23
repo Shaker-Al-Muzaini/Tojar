@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('test_test', function (){
+    dd('yes');
+});
+
+Route::get('tojar',[studendController::class,'index']);
