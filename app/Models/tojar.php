@@ -26,6 +26,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property mixed $invoiceNumber2
  * @property mixed $IdentificationNumber2
  * @method static where(string $string, $id)
+ * @method static latest()
  */
 class tojar extends Model
 {

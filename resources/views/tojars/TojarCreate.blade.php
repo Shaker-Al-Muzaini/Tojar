@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('bott')
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
     <head>
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
             <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">

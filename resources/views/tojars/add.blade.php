@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('bott')
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>

@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('bott')
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
     <head>
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
             <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -49,18 +54,15 @@
                     <div class="alert alert-danger">فشل إرسال طلبك </div
                 @endif
             @endif
-            {{--                <div class="col-12">--}}
-            {{--                    @foreach($errors->all() as $massage)--}}
-            {{--                        <div class="alert alert-danger">{{$massage}}</div>--}}
-            {{--                    @endforeach--}}
-            {{--                </div>--}}
             <div class="row">
                 <div class="col-12">
                     <br><br>
                     <h3>جمعية تجار قطع غيار السيارات والمعدات الثقيلة</h3>
                     <hr><br>
-                    <form action="{{URL('tojar_store')}}"  method="post" enctype="multipart/form-data">
+
+                    <form action="{{URL('tojar_upDate'.$tojar->id)}}"  method="post" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div>
                             <span class="input-group-text">عدد التجار</span>
                             <div>
