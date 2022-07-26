@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Api_controller\apiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware(['auth:sanctum','checkPassword'])->get('/user', static function (Request $request) {
 });
+    Route::group(['middleware'=>['api','checkPassword'],'namespace'=>'Api'], static function (){
+        Route::post('get_date',[apiController::class,'index']);
+        Route::post('get_date_By_ID',[apiController::class,'getID']);
+        Route::post('change_form_status',[apiController::class,'changeStatus']);
 
-Route::get('test_test', function (){
-    dd('yes');
-});
+    });
 
-Route::get('tojar',[studendController::class,'index']);
+
+
+

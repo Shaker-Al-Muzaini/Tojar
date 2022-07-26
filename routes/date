@@ -130,7 +130,8 @@ git  init
 
 
 
-
+//مهم
+composer require mohamed-foly/jwt-auth:dev-laravel-9
 
 
 

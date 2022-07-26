@@ -74,7 +74,7 @@ class TojarController extends Controller
 
     //select
 
-    #[NoReturn] public function index (Request $request)
+     public function index (Request $request)
     {
 
         //model
@@ -87,6 +87,7 @@ class TojarController extends Controller
             $tojars->image=$im;
 
             }
+//        return response()->json($tojar);
        return view('tojars.TojarHome')->with('tojar',$tojar);
     }
 
