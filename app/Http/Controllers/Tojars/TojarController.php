@@ -1,4 +1,4 @@
-<?php
+<?php 
 namespace App\Http\Controllers\Tojars; 
 use App\Http\Controllers\Controller;   
 use App\Http\Requests\TojarRequest;
