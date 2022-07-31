@@ -10,7 +10,7 @@ class TojarController extends Controller
 {
     //view
 
-    public  function create()
+    public  function create() 
     {
         $key=['كرم ابو سالم'=>'كرم ابو سالم','بيتونيا'=>'بيتونيا','ترقوميا'=>'ترقوميا'
             ,'معبر رفح'=>'معبر رفح' ,'شعار فرايم'=>'شعار فرايم'];
