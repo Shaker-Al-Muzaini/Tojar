@@ -1,0 +1,171 @@
+/* GENERAL */
+body {
+  padding: 30px;
+  min-height: 100vh;
+  display: flex;
+  place-items: center;
+}
+.row > * {
+  padding: 0;
+  margin: 0;
+}
+.row {
+  padding: 0;
+  margin: 0;
+}
+/* CARDS CONTAINER */
+.cards-container {
+  flex-grow: 1;
+  display: grid;
+  gap: 1.5rem;
+  row-gap: 2rem;
+  grid-auto-columns: 1fr;
+  grid-template-areas: "one" "two" "three" "four" "five" "six" "seven";
+}
+.my-card:nth-child(1) {
+  grid-area: one;
+}
+.my-card:nth-child(2) {
+  grid-area: two;
+}
+.my-card:nth-child(3) {
+  grid-area: three;
+}
+.my-card:nth-child(4) {
+  grid-area: four;
+}
+.my-card:nth-child(5) {
+  grid-area: five;
+}
+.my-card:nth-child(6) {
+  grid-area: six;
+}
+.my-card:nth-child(7) {
+  grid-area: seven;
+}
+@media (min-width: 500px) and (max-width: 991.9px) {
+  .cards-container {
+    grid-template-areas:
+      "one one two two"
+      "three three four four"
+      "five five five five"
+      "six six seven seven";
+  }
+}
+@media (min-width: 992px) {
+  .cards-container {
+    grid-template-areas:
+      "one one two two three three four four"
+      "five five five five five six six six"
+      "five five five five five seven seven seven";
+    gap: 3rem;
+  }
+}
+.chart-container {
+  background-color: #fff;
+  min-width: 100%;
+  padding: 30px;
+  border-radius: 0.5rem;
+  box-shadow: var(--cards-shadow);
+}
+/* CARDS */
+/* info card */
+.info-card {
+  height: 130px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: var(--cards-shadow);
+}
+.info-card > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.info-card svg {
+  font-size: 2.5rem;
+}
+.info-card svg path {
+  fill: var(--main-color);
+}
+.info-card span {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+.info-card strong {
+  font-weight: normal;
+  color: #999 !important;
+}
+/* chart */
+#myChart {
+  margin: auto;
+}
+/* progress card */
+/* circular progress bar */
+.progress{
+  height: 130px;
+  min-height: 100%;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: var(--cards-shadow);
+}
+.progress > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.circular-progress {
+  position: relative;
+  aspect-ratio: 1/1;
+  height: 72%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 3px 3px 3px 0 rgb(0 0 0 / 7%);
+}
+.circular-progress:before {
+  content: "";
+  position: absolute;
+  height: 80%;
+  width: 80%;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: inset 3px 3px 3px 0 rgb(0 0 0 / 7%);
+}
+.value-container {
+  position: relative;
+  font-size: 170%;
+}
+/* progress info */
+.progress .progress-info{
+  gap: 7%;
+  align-items: flex-start;
+  margin-right: 9%;
+  padding: 5% 0;
+}
+.icon-container{
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+  background-color: var(--main-color);
+  padding: 6.5%;
+  margin-right: -7%;
+  border-radius: 50%;
+}
+.icon-container svg{
+  aspect-ratio: 1/1;
+  font-size: 190%;
+}
+.icon-container svg path{
+  fill: #fff;
+}
+.progress .progress-title{
+  font-size: 150%;
+}
+.progress .progress-number{
+  font-size: 150%;
+}

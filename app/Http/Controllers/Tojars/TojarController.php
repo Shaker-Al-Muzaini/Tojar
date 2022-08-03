@@ -1,16 +1,17 @@
-<?php 
-namespace App\Http\Controllers\Tojars; 
-use App\Http\Controllers\Controller;     
+<?php
+namespace App\Http\Controllers\Tojars;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\TojarRequest;
-use App\Models\tojar;     
+use App\Models\tojar;
 use Illuminate\Http\Request;
-use JetBrains\PhpStorm\NoReturn;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TojarController extends Controller
 {
+
     //view
 
-    public  function create() 
+    public  function create()
     {
         $key=['كرم ابو سالم'=>'كرم ابو سالم','بيتونيا'=>'بيتونيا','ترقوميا'=>'ترقوميا'
             ,'معبر رفح'=>'معبر رفح' ,'شعار فرايم'=>'شعار فرايم'];
@@ -174,6 +175,75 @@ class TojarController extends Controller
     }
 
 
+    public function  show_by_id(Request $request,$id){
+        //model
 
+        define('pagination',3);
+        $tojar=tojar::where('id',$id)->select('*')
+            ->paginate(pagination);
+        foreach($tojar as $tojars) {
+            $im =url($tojars->image);
+            $tojars->image=$im;
+
+        }
+        return view('tojars.modeeeeee')->with('tojar',$tojar);
+
+    }
+
+    public function search(Request $request){
+
+        $output='';
+        $tojar=tojar::where('MerchantName2','Like','%'.$request->search.'%')
+            ->orWhere('Paymentstatus','Like','%'.$request->search.'%')
+            ->orWhere('IdentificationNumber','Like','%'.$request->search.'%')
+            ->orWhere('IdentificationNumber2','Like','%'.$request->search.'%')
+            ->get();
+        foreach($tojar as $tojars) {
+            $output .=
+                '<tr>
+                    <td>' . $tojars->id . '</td>
+                    <td>' . $tojars->MerchantName . '.' . $tojars->MerchantName2 . '</td>
+                    <td>' . $tojars->checkboxs . '</td>
+                    <td>' . $tojars->crossing . '</td>
+                    <td>' . $tojars->Paymentstatus . '</td>
+                    <td>' . $tojars->Receiptnumber . '</td>
+                    <td>' . $tojars->ThedriverName . '</td>
+                    <td>' . '<a href='.url($tojars->image).'>.<img src='. url($tojars->image) . ' alt="اضغط للعرض" height="80" width="100"></a> ' . '</td>
+                            </a></td>
+                            <td><a class="test"  data-bs-toggle="modal"  data-bs-target="#exampleModal" data-id='.$tojars.'>
+                                <button
+                                    type="submit"
+                                    class="btn btn-show btn-sm">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </a></td>
+                            <td>'.' <a href='.URL('tojar_edit::46779::5'.$tojars->id.'18::6798').'>
+                                <button
+                                    type="submit"
+                                    class="btn btn-edit btn-sm">
+
+                                    <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                                </button>
+                            </a> '.'</td>
+                            <td>'.'
+                            <form method="post" action='.URL('tojar_delete'.$tojars->id).'>
+                           <input type="hidden" name="_token" value='.csrf_token().'>
+                            <button
+                                type="submit"
+                                class="btn btn-delete btn-sm">
+                                <i class="fa-solid fa-trash-can fa-lg"></i>
+                            </button>
+                        </form>
+                            '.'</td>
+                </tr>';
+        }
+        return response($output);
+    }
+
+public  function  excel(){
+
+        return Excel::download(  (object)'TojarExport','Tojar_excel.xlsx');
 }
 
+
+}

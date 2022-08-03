@@ -275,7 +275,7 @@
                             </div>
                         </div>
                     <div>
-                        <input type="radio" id="asd" name="Paymentstatus" value="غير مدفوع" />
+                        <input type="radio" id="asd" name="Paymentstatus" value="غير " />
                         <label>غير  مدفوع</label>
                         @error('Paymentstatus')
                         <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -364,6 +364,7 @@
                 </div>
 
             </form>
+
 
                 <script>
                 let radio = document.querySelectorAll('[name="Paymentstatus"]');

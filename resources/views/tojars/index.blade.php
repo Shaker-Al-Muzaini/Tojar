@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="generator" content="Hugo 0.88.1" />
-    <title>جمعية تجار  قطع الغيار </title>
+    <title>جمعية تجار قطع الغيار</title>
     <!-- Fontawesome -->
     <link rel="stylesheet" href="{{asset('css/all.min.css')}}" />
     <!-- Bootstrap CSS -->
@@ -41,7 +41,7 @@
         <i class="fa-solid fa-bars fa-xl"></i>
     </button>
     <div class="my-logo">
-        <a class="navbar-brand me-0" href="#">جمعية تجار قطع الغيار و السيارات والمعدات الثقيلة</a>
+        <a class="navbar-brand me-0" href="#">جمعية تجار قطع الغيار</a>
     </div>
 </header>
 <!-- EXIT MODAL -->
@@ -78,60 +78,80 @@
 </div>
 <div class="container-fluid">
     <div class="row main-row">
-        <nav id="sidebarMenu" class="d-md-block sidebar collapse">
+        <nav id="sidebarMenu" class="d-md-flex sidebar collapse">
             <div class="position-sticky pt-3">
                 <div class="logo-darkmode">
-                    <a class="navbar-brand me-0" href="#">
-                        <span style="color: var(--main-color); display: block">جمعية تجار</span>
-                    </a>
-
-                    <button class="btn-menu">
-                        <i class="fa-solid fa-arrow-right fa-lg"></i>
-                        <i
-                            class="fa-solid fa-arrow-left fa-lg"
-                            style="display: none"
-                        ></i>
+                    <a class="navbar-brand me-0" href=""
+                    > جمعية تجار  <span style="color: var(--main-color); display: block"
+                        > قطع الغيار</span
+                        ></a
+                    >
+                    <button class="btn-compressed">
+                        <div class="arrow-right">
+                            <i class="fa-solid fa-arrow-right fa-lg"></i>
+                        </div>
+                        <div class="arrow-left" style="display: none">
+                            <i class="fa-solid fa-arrow-left fa-lg"></i>
+                        </div>
                     </button>
                 </div>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{URL('/')}}">
+                        <a id="home-link" href="{{URL('/')}}" class="nav-link active" aria-current="page" title="الصفحة الرئيسية">
                             <i class="fa-solid fa-home"></i>
                             <span class="nav-link-name">الصفحة الرئيسية</span>
                         </a>
                     </li>
-
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{URL('add')}}">
-                                <i class="fa-solid fa-home"></i>
-                                <span class="nav-link-name">أضافه طلب</span>
-                            </a>
-                        </li>
-                    </ul>
-
-
                     <li class="nav-item">
-                        <a
-                            id="logout"
-                            class="nav-link logout"
-                            href="#"
-                            data-bs-toggle="modal"
-                            data-bs-target="#exitModal">
-                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                            <span class="nav-link-name">تسجيل الخروج</span>
+                        <a id="tubes-link" class="nav-link" title="أضافه جديد" href="{{URL('add')}}">
+                            <i
+                                class="fa-solid fa-circle-plus"
+                                style="margin-right: 2px"
+                            ></i>
+                            <span class="nav-link-name">أضافه جديد</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="store-link" class="nav-link" title="المخزن">
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="customers-link" class="nav-link" title="الزبائن">
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="branches-link" class="nav-link" title="الفروع">
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="distribution-link" class="nav-link" title="التوزيع">
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="employees-link" class="nav-link" title="الموظفين">
                         </a>
                     </li>
                 </ul>
             </div>
+                <a
+                    id="logout"
+                    class="nav-link logout"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exitModal"
+                >
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
         </nav>
-
         <main class="main-content">
             <iframe
-                src="{{URL('tojar')}}"
-                width="100%"
-                height="100%"
-            ></iframe>
+                            src="{{URL('tojar')}}"
+                            width="100%"
+                            height="100%">
+                        </iframe>
         </main>
     </div>
 </div>
@@ -140,4 +160,3 @@
 <script src="{{asset('js/dashboard.js')}}"></script>
 </body>
 </html>
-

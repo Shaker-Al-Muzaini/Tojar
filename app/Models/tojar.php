@@ -4,6 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @property mixed|string $image
@@ -36,5 +37,13 @@ class tojar extends Model
     protected $table='tojar';
     use HasFactory;
     use SoftDeletes;
+
+    public static  function getAllDate(){
+        $resul= DB::table('tojar')->
+            select('id','invoiceNumber','invoiceNumber2','Date')
+            ->get()
+            ->toArray();
+        return $resul;
+    }
 
 }

@@ -9,7 +9,7 @@
   content: '';
   width: 10px;
   height: 100%;
-  background: var(--main-gradient);
+  background: var(--main-color);
   position: absolute;
   top: 0;
   right: 0;
@@ -31,7 +31,7 @@
   position: sticky;
   top: -2px;
   z-index: 100;
-  background-color: var(--light-blue);
+  background-color: rgb(228, 245, 252, 0.9);
   border-radius: 0;
   box-shadow: 0 3px 12px rgb(0 0 0 / 16%);
 }
@@ -46,7 +46,7 @@
 .customers-nav{
   display: flex;
   gap: 2px;
-  background: var(--main-gradient);
+  background: var(--main-color);
   min-width: 279.63px;
 }
 .sticky-nav-btn{
@@ -54,7 +54,7 @@
   min-width: 94.45px;
   padding: 10px 13px;
   border: none;
-  background: var(--main-gradient);
+  background: var(--main-color);
   color: #ebe8e8 !important;
   text-align: center;
   position: relative;

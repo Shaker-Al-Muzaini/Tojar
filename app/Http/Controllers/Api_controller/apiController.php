@@ -131,7 +131,11 @@ class apiController extends Controller
         $key=['كرم ابو سالم'=>'كرم ابو سالم','بيتونيا'=>'بيتونيا','ترقوميا'=>'ترقوميا'
             ,'معبر رفح'=>'معبر رفح' ,'شعار فرايم'=>'شعار فرايم'];
 
-        return view('tojars.edit')->with('tojar',$tojar)->with('key' ,$key);
+//        return view('tojars.edit')->with('tojar',$tojar)->with('key' ,$key);
+        return  \request()->json($tojar);
+
+
+
 
 
     }

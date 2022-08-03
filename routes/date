@@ -127,6 +127,7 @@ php  artisan cache:clear
  */
 //
 git  init
+git remote
 
 
 

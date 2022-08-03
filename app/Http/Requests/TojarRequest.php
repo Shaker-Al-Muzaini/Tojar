@@ -28,12 +28,11 @@ class TojarRequest extends FormRequest
     public function rules(): array
     {
         return [
-
             'Date'=>'required',
             'crossing'=>'required',
             'checkboxs'=>'required',
             'DriverMobileNumber'=>'required',
-            'image'=>'required|mimes:jpg,png,jpeg,gif,svg|max:2048|image',
+            'image'=>'required|mimes:jpg,pdf,png,jpeg,gif,svg|max:7048',
             'Paymentstatus'=>'required',
 
         ];

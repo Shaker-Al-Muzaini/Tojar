@@ -1,11 +1,10 @@
 /* GENERAL */
 :root {
-  --main-color: rgb(28, 121, 213);
+  --main-color: #1c79d5;
   --color-text: #333;
   --body-background-color: rgb(230, 230, 230);
-  --border-bottom-color: #ddd;
-  --main-gradient: rgb(28, 121, 213);
   --shadow: 0 0 10px 0.25rem rgb(13 110 253 / 10%);
+  --cards-shadow: 6px 6px 3px 0 rgb(0 0 0 / 7%);
   --section-margin: 20px;
   --light-blue: #e5f5fc;
 }
@@ -19,6 +18,18 @@ body {
   font-family: "Cairo", sans-serif;
   background-color: var(--body-background-color);
   padding: 16px;
+  overflow: hidden;
+}
+.loading-screen{
+  background: var(--body-background-color);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4444;
+  display: grid;
+  place-items: center;
 }
 .body-padding-top{
   padding-top: 87.2px;
@@ -30,7 +41,7 @@ body {
   border-color: #0a58ca;
 }
 .btn-primary {
-  background: var(--main-gradient);
+  background: var(--main-color);
 }
 .btn-primary:focus {
   box-shadow: none;
@@ -44,6 +55,9 @@ body {
   border-top: 2px solid var(--main-color);
   margin-bottom: var(--section-margin);
   overflow: auto;
+}
+.no-wrap{
+  white-space: nowrap;
 }
 
 /* CONTENT */
@@ -69,7 +83,7 @@ body {
 /* add button */
 .btn-add {
   min-width: 146.9px;
-  background: var(--main-gradient);
+  background: var(--main-color);
   transition: box-shadow 0.3s;
   border: none;
 }
@@ -104,7 +118,7 @@ body {
 .dataTables_length .form-select {
   display: inline-block;
   width: initial;
-  padding: 0.375rem 0.75rem 0.375rem 1rem;
+  padding: 0.375rem 0.75rem 0.375rem 1.3rem;
   -moz-padding-start: calc(0.75rem - 3px);
   font-size: 1rem;
   font-weight: 400;
@@ -155,19 +169,50 @@ form.row>*{
   margin-top: 1rem;
 }
 /* table */
+.table{
+  --bs-table-striped-bg: rgba(0, 0, 0, 0.03);
+}
 table.dataTable.no-footer {
   padding-top: 20px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #ddd;
+}
+table.dataTable thead th,
+table.dataTable thead td{
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
 }
 tr {
-  border-bottom: 1px solid #ccc;
+  border-bottom: none;
+  border-style: none;
+  border-color: transparent;
+  border-width: 0;
+}
+.btn-delete path{
+  fill: var(--bs-danger);
+}
+.btn-edit path{
+  fill: var(--main-color);
+}
+.btn-delete:hover,
+.btn-edit:hover{
+  border-color: transparent;
+  background-color: transparent;
 }
 /* pagination */
 .dataTables_wrapper .dataTables_paginate .paginate_button {
   color: #0183bf !important;
 }
+.dataTables_wrapper .dataTables_paginate span .paginate_button{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ddd transparent #ddd #ddd;
+}
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
   color: #0183bf !important;
-  border: 1px solid transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ddd transparent #ddd #ddd;
   background-color: transparent;
   background: none;
 }
@@ -189,7 +234,38 @@ tr {
   color: var(--bs-pagination-disabled-color) !important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button {
-  padding: 5px 10px;
+  padding: 0.375rem 0.75rem;
+  margin: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.next,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next.disabled{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ddd transparent #ddd #ddd;
+  border-radius: 0.3rem 0 0 0.3rem;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous.disabled{
+  border: 1px solid #ddd;
+  border-radius: 0 0.3rem 0.3rem 0;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button path{
+  fill: var(--main-color);
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled path{
+  fill: #666;
+}
+.dataTables_wrapper .dataTables_paginate .ellipsis {
+  padding: 0.2rem 0.6rem 0.24rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ddd transparent #ddd #ddd;
+  color: var(--main-color) !important;
+}
+.dataTables_wrapper .dataTables_paginate{
+  padding-top: 0.755em;
 }
 .nav-pagination {
   width: fit-content;
@@ -197,10 +273,10 @@ tr {
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-  color: #333 !important;
-  border: 1px solid #ccc;
+  color: #ebe8ee !important;
+  border: 1px solid var(--main-color);
   background: none;
-  background-color: var(--light-blue);
+  background-color: var(--main-color);
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button:active {
   box-shadow: none;
