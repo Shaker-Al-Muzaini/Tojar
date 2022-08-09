@@ -4,7 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TojarRequest;   
 use App\Models\tojar;
 use Illuminate\Http\Request; 
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Facades\Excel; 
 
 class TojarController extends Controller
 {
