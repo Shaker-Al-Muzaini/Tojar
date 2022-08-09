@@ -19,7 +19,7 @@ class TojarController extends Controller
     }
 
     //create
-
+ 
      public function store(TojarRequest $request)
     {
         //Request
