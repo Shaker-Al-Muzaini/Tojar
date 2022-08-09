@@ -83,10 +83,10 @@ class apiController extends Controller
         //model
         $tojar=tojar::get();
         if(! $tojar) {
-            return $this->returnError('form',$tojar,' كس امك يا ابو عمر');
+            return $this->returnError('form',$tojar,'لم');
 
         }
-        return  $this->returnData('form',$tojar,'تم العرض بنجاح + كس امك يا ابو عمر');
+        return  $this->returnData('form',$tojar,'تم العرض بنجاح');
 
     }
 
@@ -98,10 +98,10 @@ class apiController extends Controller
 
         $tojar=tojar::select('*')->find($request -> id);
         if(! $tojar) {
-            return $this->returnError('form',$tojar,' كس امك يا ابو عمر');
+            return $this->returnError('form',$tojar,'');
 
         }
-        return  $this->returnData('form',$tojar,'تم العرض بنجاح + كس امك يا ابو عمر');
+        return  $this->returnData('form',$tojar,'تم العرض بنجاح ');
 
     }
  public function changeStatus(Request $request,)
@@ -109,7 +109,7 @@ class apiController extends Controller
 
         $tojar= tojar::where('id',$request->id)->update(['active'=>$request->active]);
         if(! $tojar) {
-            return $this->returnError('form',$tojar,' كس امك يا ابو عمر');
+            return $this->returnError('form',$tojar,'لم');
 
         }
 
