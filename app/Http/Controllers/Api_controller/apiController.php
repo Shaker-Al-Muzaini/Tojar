@@ -28,7 +28,7 @@ class apiController extends Controller
 
         $MerchantName2=$request['MerchantName2'];
         $Date=$request['Date'];
-        $crossing=$request['crossing'];
+        $crossing=$request['crossing']; 
         $Merchantsphone2=$request['Merchantsphone2'];
         $IdentificationNumber2=$request['IdentificationNumber2'];
         $invoiceNumber2=$request['invoiceNumber2'];
