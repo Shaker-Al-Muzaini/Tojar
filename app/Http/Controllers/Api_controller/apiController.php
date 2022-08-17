@@ -1,7 +1,7 @@
 <?php
  
 namespace App\Http\Controllers\Api_controller;  
-use App\Http\Controllers\Controller; 
+use App\Http\Controllers\Controller;  
 use App\Traits\GeneralTrait;   
 use Illuminate\Http\Request; 
 use App\Models\tojar;
