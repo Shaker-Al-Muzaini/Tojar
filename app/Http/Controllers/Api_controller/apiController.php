@@ -6,7 +6,7 @@ use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;  
 use App\Models\tojar;   
 use phpDocumentor\Reflection\Types\This;
- 
+  
 class apiController extends Controller
 {
 
