@@ -81,7 +81,7 @@ class apiController extends Controller
     {
 
         //model
-        $tojar=tojar::get();
+        $tojar=tojar::get(); 
         if(! $tojar) {
             return $this->returnError('form',$tojar,'لم');
 
